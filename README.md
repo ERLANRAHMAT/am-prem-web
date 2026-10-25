@@ -6,14 +6,6 @@ Dibangun dengan **Express.js + EJS + JavaScript vanilla**, **tanpa database**, d
 
 > Proyek ini bukan afiliasi resmi Alight Creative. Gunakan hanya untuk akun milik sendiri.
 
-## Screenshot
-
-| Halaman utama | Step 2 | Hasil aktivasi |
-| --- | --- | --- |
-| ![Halaman utama](docs/screenshots/home.png) | ![Step 2](docs/screenshots/step-2.png) | ![Hasil](docs/screenshots/step-3.png) |
-
-> Placeholder: simpan screenshot di `docs/screenshots/` dengan nama `home.png`, `step-2.png`, dan `step-3.png`. Lebar yang disarankan 360px (mobile) atau 720px (desktop).
-
 ## Fitur
 
 - Alur tiga langkah: **Magic Link → Verifikasi + Purchase → Hasil / Retry**.
