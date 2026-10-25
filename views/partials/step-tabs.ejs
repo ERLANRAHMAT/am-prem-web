@@ -1,0 +1,68 @@
+<div class="step-tabs" role="tablist" aria-label="Langkah aktivasi">
+  <button
+    class="step-tab <%= boot.step === 1 ? 'is-active' : '' %>"
+    type="button"
+    id="tab-1"
+    role="tab"
+    aria-controls="panel-1"
+    aria-selected="<%= boot.step === 1 ? 'true' : 'false' %>"
+    tabindex="<%= boot.step === 1 ? '0' : '-1' %>"
+    data-tab-step="1"
+  >
+    <span class="step-num">01</span>
+    <span class="step-copy">
+      <span class="step-title">Magic Link</span>
+      <span class="step-sub">Kirim link</span>
+    </span>
+  </button>
+
+  <button
+    class="step-tab <%= boot.step === 2 ? 'is-active' : '' %> <%= boot.step < 2 ? 'is-locked' : '' %>"
+    type="button"
+    id="tab-2"
+    role="tab"
+    aria-controls="panel-2"
+    aria-selected="<%= boot.step === 2 ? 'true' : 'false' %>"
+    tabindex="<%= boot.step === 2 ? '0' : '-1' %>"
+    data-tab-step="2"
+    aria-disabled="<%= boot.step < 2 ? 'true' : 'false' %>"
+    <%= boot.step < 2 ? 'disabled' : '' %>
+  >
+    <span class="step-num">02</span>
+    <span class="step-copy">
+      <span class="step-title">Verifikasi</span>
+      <span class="step-sub"><%= boot.step < 2 ? 'Terkunci' : 'Tempel link' %></span>
+    </span>
+    <% if (boot.step < 2) { %>
+    <svg class="step-lock" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M7 10V7a5 5 0 0 1 10 0v3" fill="none" stroke="currentColor" stroke-width="2.5"></path>
+      <rect x="4" y="10" width="16" height="11" fill="currentColor"></rect>
+    </svg>
+    <% } %>
+  </button>
+
+  <button
+    class="step-tab <%= boot.step === 3 ? 'is-active' : '' %> <%= boot.step < 3 ? 'is-locked' : '' %>"
+    type="button"
+    id="tab-3"
+    role="tab"
+    aria-controls="panel-3"
+    aria-selected="<%= boot.step === 3 ? 'true' : 'false' %>"
+    tabindex="<%= boot.step === 3 ? '0' : '-1' %>"
+    data-tab-step="3"
+    aria-disabled="<%= boot.step < 3 ? 'true' : 'false' %>"
+    <%= boot.step < 3 ? 'disabled' : '' %>
+  >
+    <span class="step-num">03</span>
+    <span class="step-copy">
+      <span class="step-title">Hasil</span>
+      <span class="step-sub"><%= boot.step < 3 ? 'Terkunci' : 'Status' %></span>
+    </span>
+    <% if (boot.step < 3) { %>
+    <svg class="step-lock" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M7 10V7a5 5 0 0 1 10 0v3" fill="none" stroke="currentColor" stroke-width="2.5"></path>
+      <rect x="4" y="10" width="16" height="11" fill="currentColor"></rect>
+    </svg>
+    <% } %>
+  </button>
+</div>

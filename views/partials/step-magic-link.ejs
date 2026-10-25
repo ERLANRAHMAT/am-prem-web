@@ -1,0 +1,54 @@
+<section
+  class="step-panel"
+  id="panel-1"
+  role="tabpanel"
+  aria-labelledby="tab-1"
+  data-panel-step="1"
+  <%= boot.step !== 1 ? 'hidden' : '' %>
+>
+  <div class="panel-head">
+    <span class="eyebrow">Step 1</span>
+    <h2>Kirim Magic Link</h2>
+    <p>Masukkan email yang ingin diaktifkan. Sistem akan mengirim link verifikasi resmi Alight Motion ke inbox tersebut.</p>
+  </div>
+
+  <form id="magic-form" class="form" novalidate>
+    <div class="field">
+      <label for="email">Alamat email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        inputmode="email"
+        autocomplete="email"
+        spellcheck="false"
+        maxlength="254"
+        placeholder="nama@email.com"
+        value="<%= boot.email %>"
+        required
+        aria-describedby="email-hint"
+      >
+      <p class="hint" id="email-hint">Gunakan email aktif. Link dikirim ke inbox email ini.</p>
+    </div>
+
+    <div class="hp-field" aria-hidden="true">
+      <label for="hp-magic">Jangan diisi</label>
+      <input id="hp-magic" name="hp" type="text" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="captcha-wrap" data-captcha="magic" <%= boot.captchaEnabled ? '' : 'hidden' %>>
+      <div id="turnstile-magic" class="turnstile" data-sitekey="<%= boot.turnstileSiteKey %>"></div>
+    </div>
+
+    <button class="btn btn-primary btn-block" id="magic-submit" type="submit">
+      <span class="btn-label">Kirim Magic Link</span>
+    </button>
+
+    <p class="status" id="magic-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <div class="panel-note">
+    <strong>Belum menerima email?</strong>
+    <span>Tunggu 1-2 menit, lalu cek folder spam atau promosi. Tombol kirim ulang aktif setelah 60 detik.</span>
+  </div>
+</section>

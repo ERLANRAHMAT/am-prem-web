@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AM Generator">
+  <rect x="3" y="3" width="58" height="58" fill="#22C55E" stroke="#0A0A0A" stroke-width="5"/>
+  <rect x="9" y="9" width="46" height="46" fill="none" stroke="#0A0A0A" stroke-width="2"/>
+  <path d="M15 46 24 18h6l9 28h-6l-2-7h-8l-2 7zm9-12h6l-3-10z" fill="#0A0A0A"/>
+  <path d="M39 18h6l4 16 4-16h6v28h-5V30l-3 12h-4l-3-12v16h-5z" fill="#0A0A0A"/>
+</svg>

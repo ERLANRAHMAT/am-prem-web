@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body data-env="<%= env %>">
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <%- include('partials/header') %>
+
+    <main id="main" class="main">
+      <article class="page-card prose">
+        <span class="eyebrow">Panduan</span>
+        <h1>Tutorial pemakaian</h1>
+        <p class="lead">Ikuti urutan ini agar aktivasi premium berjalan sekali jalan. Seluruh proses memakan waktu sekitar 2-5 menit, tergantung kecepatan email masuk.</p>
+
+        <div class="callout">
+          <strong>Sebelum mulai</strong>
+          <ul>
+            <li>Siapkan email aktif yang bisa kamu buka di perangkat ini.</li>
+            <li>Gunakan browser terbaru. Jangan pakai mode incognito yang memblokir cookie.</li>
+            <li>Jangan menutup tab selama proses verifikasi dan purchase berjalan.</li>
+          </ul>
+        </div>
+
+        <h2>Step 1 - Kirim magic link</h2>
+        <ol>
+          <li>Buka halaman utama dan isi alamat email pada kolom yang tersedia.</li>
+          <li>Selesaikan captcha jika muncul, lalu tekan <strong>Kirim Magic Link</strong>.</li>
+          <li>Tunggu pesan sukses. Sistem akan membuka Step 2 secara otomatis.</li>
+          <li>Buka inbox email tersebut. Cek juga folder <strong>Spam</strong>, <strong>Promosi</strong>, dan tab <strong>Semua Email</strong>.</li>
+        </ol>
+
+        <h2>Step 2 - Tempel link dari email</h2>
+        <ol>
+          <li>Buka email dari Alight Motion. Cari pesan yang berisi tombol atau tautan verifikasi.</li>
+          <li>Salin <strong>seluruh link</strong>, bukan hanya sebagian. Link biasanya panjang dan mengandung <code>oobCode</code>.</li>
+          <li>Tempel link ke kolom di Step 2, selesaikan captcha, lalu tekan <strong>Verifikasi &amp; Aktifkan Premium</strong>.</li>
+          <li>Tunggu proses verifikasi dan purchase selesai. Jangan menekan tombol berulang kali.</li>
+        </ol>
+
+        <div class="callout callout-warn">
+          <strong>Jangan buka link di browser lain</strong>
+          <p>Link verifikasi bersifat sekali pakai. Jika link sudah terbuka di tempat lain, proses di halaman ini bisa gagal dan kamu perlu mengirim magic link baru.</p>
+        </div>
+
+        <h2>Step 3 - Cek hasil aktivasi</h2>
+        <ol>
+          <li>Jika berhasil, kartu hasil menampilkan email, status, license, tanggal expired, product, dan order.</li>
+          <li>Gunakan tombol <strong>Salin</strong> untuk menyalin email atau order ID bila diperlukan.</li>
+          <li>Buka aplikasi Alight Motion, login dengan email yang sama, lalu cek profil premium.</li>
+        </ol>
+
+        <p>Jika purchase gagal tetapi verifikasi berhasil, tombol <strong>Retry Purchase</strong> akan tersedia. Retry memakai token yang masih tersimpan di sesi terenkripsi, jadi kamu tidak perlu mengirim magic link baru.</p>
+
+        <h2>Batasan yang perlu diketahui</h2>
+        <ul>
+          <li>Sesi berlaku 30 menit. Setelah itu kamu harus mulai dari Step 1.</li>
+          <li>Kirim ulang magic link memiliki jeda 60 detik dan batas percobaan per email serta per IP.</li>
+          <li>Email sementara atau email sekali pakai akan ditolak.</li>
+          <li>Jika link sudah kedaluwarsa, kembali ke Step 1 dan minta link baru.</li>
+        </ul>
+
+        <h2>Masalah umum</h2>
+        <div class="mini-faq">
+          <h3>Magic link tidak masuk</h3>
+          <p>Tunggu 1-2 menit, cek spam, lalu kirim ulang setelah cooldown 60 detik. Pastikan alamat email tidak typo.</p>
+          <h3>Link ditolak</h3>
+          <p>Pastikan link lengkap, diawali <code>https://</code>, berasal dari domain Alight Motion, dan mengandung <code>oobCode</code>. Jangan menambahkan spasi di awal atau akhir link.</p>
+          <h3>Muncul pesan rate limit</h3>
+          <p>Tunggu sesuai hitungan yang tertera. Batas ini melindungi kuota API dan mencegah penyalahgunaan.</p>
+          <h3>Token kedaluwarsa</h3>
+          <p>Ulangi dari Step 1. Link verifikasi dan token tidak bisa dipakai ulang setelah kedaluwarsa.</p>
+        </div>
+
+        <div class="page-actions">
+          <a class="btn btn-primary" href="/">Kembali ke Generator</a>
+          <a class="btn btn-ghost" href="/privacy">Baca Syarat &amp; Privasi</a>
+        </div>
+      </article>
+    </main>
+
+    <%- include('partials/footer') %>
+  </div>
+</body>
+</html>

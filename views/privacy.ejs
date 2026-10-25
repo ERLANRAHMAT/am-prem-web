@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body data-env="<%= env %>">
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <%- include('partials/header') %>
+
+    <main id="main" class="main">
+      <article class="page-card prose">
+        <span class="eyebrow">Legal</span>
+        <h1>Syarat &amp; Privasi</h1>
+        <p class="lead">Ringkasan singkat tentang data yang diproses, batasan layanan, dan cara kami menjaga sesi kamu.</p>
+
+        <h2>Data yang disimpan</h2>
+        <ul>
+          <li><strong>Email</strong> yang kamu masukkan, dipakai untuk mengirim magic link dan menjalankan aktivasi.</li>
+          <li><strong>Token verifikasi</strong> dari upstream, disimpan sementara di cookie sesi terenkripsi AES-256-GCM. Token tidak pernah dikirim ke JavaScript browser dan dihapus setelah purchase berhasil atau saat kamu menekan Mulai Ulang.</li>
+          <li><strong>Status langkah</strong> dan hasil aktivasi, disimpan di cookie sesi yang sama agar halaman bisa dipulihkan saat dimuat ulang.</li>
+          <li><strong>Hash IP</strong> untuk rate limit dan blocklist. IP asli tidak disimpan dalam bentuk plaintext oleh aplikasi.</li>
+        </ul>
+
+        <h2>Tanpa database</h2>
+        <p>Layanan ini tidak memakai database. State per pengguna hanya hidup di cookie sesi terenkripsi dengan umur 30 menit. Rate limit dan blocklist disimpan sementara di memori instance server dan bisa hilang saat instance dimulai ulang.</p>
+
+        <h2>Log</h2>
+        <p>Log server hanya ditulis ke stdout dan memakai email ter-mask. Kami tidak mencatat token, akses key upstream, atau URL verifikasi secara utuh.</p>
+
+        <h2>Pihak ketiga</h2>
+        <ul>
+          <li><strong>Betabotz API</strong> sebagai upstream untuk pengiriman magic link, verifikasi, dan purchase premium.</li>
+          <li><strong>Cloudflare Turnstile</strong> untuk verifikasi captcha pada Step 1 dan Step 2.</li>
+          <li><strong>Vercel</strong> sebagai platform hosting dan firewall edge.</li>
+          <li><strong>Alight Motion / Alight Creative</strong> sebagai penerbit akun dan lisensi.</li>
+        </ul>
+
+        <h2>Keamanan</h2>
+        <p>Sesi memakai cookie httpOnly, secure di production, dan SameSite Strict. Setiap permintaan POST wajib melewati pemeriksaan origin, nonce bertanda tangan HMAC, rate limit, dan filter user agent. Captcha diverifikasi di server. Pesan error dibuat seragam untuk mengurangi risiko enumerasi.</p>
+
+        <h2>Batasan layanan</h2>
+        <ul>
+          <li>Layanan ini bukan produk resmi Alight Creative dan tidak memiliki afiliasi dengan Alight Creative.</li>
+          <li>Ketersediaan bergantung pada upstream. Kami tidak menjamin aktivasi selalu berhasil.</li>
+          <li>Jangan memakai layanan untuk spam, penipuan, atau aktivasi akun milik orang lain tanpa izin.</li>
+          <li>Kami dapat membatasi atau memblokir akses yang terindikasi menyalahgunakan layanan.</li>
+        </ul>
+
+        <h2>Perubahan</h2>
+        <p>Kebijakan ini dapat diperbarui sewaktu-waktu. Versi terbaru selalu tersedia di halaman ini.</p>
+
+        <div class="page-actions">
+          <a class="btn btn-primary" href="/">Kembali ke Generator</a>
+          <a class="btn btn-ghost" href="/tutorial">Buka Tutorial</a>
+        </div>
+      </article>
+    </main>
+
+    <%- include('partials/footer') %>
+  </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<section
+  class="step-panel"
+  id="panel-2"
+  role="tabpanel"
+  aria-labelledby="tab-2"
+  data-panel-step="2"
+  <%= boot.step !== 2 ? 'hidden' : '' %>
+>
+  <div class="panel-head">
+    <span class="eyebrow">Step 2</span>
+    <h2>Verifikasi &amp; Aktivasi</h2>
+    <p>Tempel link lengkap dari email. Setelah link valid, sistem otomatis menjalankan purchase premium.</p>
+  </div>
+
+  <div class="email-chip">
+    <span class="chip-label">Email tersimpan</span>
+    <strong id="verify-email"><%= boot.email || 'Belum ada email' %></strong>
+  </div>
+
+  <form id="verify-form" class="form" novalidate>
+    <div class="field">
+      <label for="rawUrl">Link dari email</label>
+      <textarea
+        id="rawUrl"
+        name="rawUrl"
+        rows="4"
+        maxlength="2048"
+        placeholder="https://alight-creative.firebaseapp.com/__/auth/action?mode=signIn&amp;oobCode=..."
+        required
+        spellcheck="false"
+        autocapitalize="off"
+        autocomplete="off"
+        aria-describedby="url-hint"
+      ></textarea>
+      <p class="hint" id="url-hint">Salin seluruh link dari email. Link wajib mengandung <code>oobCode</code>.</p>
+    </div>
+
+    <div class="hp-field" aria-hidden="true">
+      <label for="hp-verify">Jangan diisi</label>
+      <input id="hp-verify" name="hp" type="text" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="captcha-wrap" data-captcha="verify" <%= boot.captchaEnabled ? '' : 'hidden' %>>
+      <div id="turnstile-verify" class="turnstile" data-sitekey="<%= boot.turnstileSiteKey %>"></div>
+    </div>
+
+    <button class="btn btn-primary btn-block" id="verify-submit" type="submit">
+      <span class="btn-label">Verifikasi &amp; Aktifkan Premium</span>
+    </button>
+
+    <p class="status" id="verify-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <div class="panel-note">
+    <strong>Link sekali pakai.</strong>
+    <span>Jangan membuka link di browser lain sebelum proses selesai. Jika link kedaluwarsa, kembali ke Step 1 dan kirim ulang.</span>
+  </div>
+</section>

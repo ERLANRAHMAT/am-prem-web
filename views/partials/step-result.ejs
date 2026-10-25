@@ -1,0 +1,72 @@
+<section
+  class="step-panel"
+  id="panel-3"
+  role="tabpanel"
+  aria-labelledby="tab-3"
+  data-panel-step="3"
+  <%= boot.step !== 3 ? 'hidden' : '' %>
+>
+  <div class="result-card result-card-success" id="result-success" <%= boot.result ? '' : 'hidden' %>>
+    <div class="result-head">
+      <span class="badge badge-success">Premium Aktif</span>
+      <h2>Aktivasi Berhasil</h2>
+      <p>Akun Alight Motion dengan email di bawah sudah mendapat akses premium.</p>
+    </div>
+
+    <dl class="result-grid">
+      <div class="result-row">
+        <dt>Email</dt>
+        <dd>
+          <span class="mono" id="result-email"><%= boot.result ? boot.result.email : '' %></span>
+          <button class="copy-btn" type="button" data-copy-target="result-email">Salin</button>
+        </dd>
+      </div>
+      <div class="result-row">
+        <dt>Status</dt>
+        <dd><span id="result-status"><%= boot.result ? boot.result.status : '-' %></span></dd>
+      </div>
+      <div class="result-row">
+        <dt>License</dt>
+        <dd><span id="result-license"><%= boot.result ? boot.result.license : '-' %></span></dd>
+      </div>
+      <div class="result-row">
+        <dt>Expired</dt>
+        <dd><span id="result-expired"><%= boot.result ? boot.result.expired : '-' %></span></dd>
+      </div>
+      <div class="result-row">
+        <dt>Product</dt>
+        <dd><span class="mono" id="result-product"><%= boot.result ? boot.result.product : '-' %></span></dd>
+      </div>
+      <div class="result-row">
+        <dt>Order</dt>
+        <dd>
+          <span class="mono" id="result-order"><%= boot.result ? boot.result.order : '-' %></span>
+          <button class="copy-btn" type="button" data-copy-target="result-order">Salin</button>
+        </dd>
+      </div>
+    </dl>
+
+    <p class="result-note">Login di aplikasi Alight Motion dengan email di atas, lalu cek profil premium. Perubahan lisensi dapat memerlukan beberapa menit untuk tersinkron.</p>
+  </div>
+
+  <div class="result-card result-card-warn" id="result-retry" <%= boot.step === 3 && !boot.result ? '' : 'hidden' %>>
+    <div class="result-head">
+      <span class="badge badge-warn">Perlu Retry</span>
+      <h2>Purchase Belum Selesai</h2>
+      <p id="retry-message"><%= boot.lastError || 'Verifikasi berhasil, tetapi purchase premium belum selesai.' %></p>
+    </div>
+
+    <button class="btn btn-primary btn-block" id="retry-btn" type="button" <%= boot.canRetry ? '' : 'disabled' %>>
+      <span class="btn-label">Retry Purchase</span>
+    </button>
+
+    <p class="status" id="retry-status" role="status" aria-live="polite"></p>
+
+    <p class="result-note"><%= boot.canRetry ? 'Token verifikasi masih tersimpan di sesi terenkripsi. Retry tidak perlu mengirim magic link baru.' : 'Token verifikasi tidak tersedia. Ulangi dari Step 1 lalu verifikasi link baru.' %></p>
+  </div>
+
+  <div class="result-actions">
+    <button class="btn btn-ghost" id="reset-btn" type="button">Mulai Ulang</button>
+    <a class="btn btn-ghost" href="/tutorial">Buka Tutorial</a>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+{
+  "name": "am-generator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AM Generator Web - aktivasi premium Alight Motion lewat magic link, Express + EJS tanpa database.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build:client": "terser public/js/app.js -c drop_console=true,drop_debugger=false -m -o public/js/app.min.js && terser public/js/anti-inspect.js -c drop_console=true,drop_debugger=false -m -o public/js/anti-inspect.min.js",
+    "vercel-build": "npm run build:client"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "terser": "^5.37.0"
+  }
+}

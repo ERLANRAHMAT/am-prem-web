@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body data-env="<%= boot.env %>">
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <%- include('partials/header') %>
+
+    <main id="main" class="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="hero-kicker">Alight Motion Premium</p>
+        <h1 id="hero-title">Aktifkan premium dalam tiga langkah.</h1>
+        <p class="hero-sub">Kirim magic link, tempel link dari email, lalu sistem menjalankan aktivasi otomatis. Tanpa login dan tanpa password.</p>
+        <ul class="hero-points">
+          <li><span aria-hidden="true">01</span> Magic link ke email</li>
+          <li><span aria-hidden="true">02</span> Verifikasi otomatis</li>
+          <li><span aria-hidden="true">03</span> Hasil &amp; retry</li>
+        </ul>
+      </section>
+
+      <div
+        class="app-card"
+        id="app"
+        data-step="<%= boot.step %>"
+        data-email="<%= boot.email %>"
+        data-email-masked="<%= boot.emailMasked %>"
+        data-has-token="<%= boot.hasToken ? '1' : '0' %>"
+        data-can-retry="<%= boot.canRetry ? '1' : '0' %>"
+        data-captcha-enabled="<%= boot.captchaEnabled ? '1' : '0' %>"
+        data-turnstile-key="<%= boot.turnstileSiteKey %>"
+        data-last-error="<%= boot.lastError %>"
+      >
+        <%- include('partials/step-tabs') %>
+
+        <div class="panels">
+          <%- include('partials/step-magic-link') %>
+          <%- include('partials/step-verify') %>
+          <%- include('partials/step-result') %>
+        </div>
+      </div>
+
+      <%- include('partials/faq') %>
+    </main>
+
+    <%- include('partials/footer') %>
+  </div>
+
+  <script src="<%= asset('js/app.js') %>" defer></script>
+</body>
+</html>

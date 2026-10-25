@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body data-env="<%= env %>">
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <%- include('partials/header') %>
+
+    <main id="main" class="main">
+      <section class="error-card" aria-labelledby="error-title">
+        <span class="error-code mono"><%= statusCode %></span>
+        <h1 id="error-title"><%= title %></h1>
+        <p><%= message %></p>
+        <div class="page-actions">
+          <a class="btn btn-primary" href="/">Ke Halaman Utama</a>
+          <a class="btn btn-ghost" href="/tutorial">Buka Tutorial</a>
+        </div>
+      </section>
+    </main>
+
+    <%- include('partials/footer') %>
+  </div>
+</body>
+</html>
